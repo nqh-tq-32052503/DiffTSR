@@ -15,7 +15,8 @@ from scipy import ndimage
 from scipy.linalg import orth
 from torch.nn import functional as F
 from scipy.interpolate import interp2d
-from torchvision.transforms.functional_tensor import rgb_to_grayscale
+# from torchvision.transforms.functional_tensor import rgb_to_grayscale
+from torchvision.transforms.functional import rgb_to_grayscale
 
 import train.dataset.utils.utils_image as util
 from train.dataset.utils.diffjpeg import DiffJPEG

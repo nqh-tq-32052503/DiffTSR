@@ -28,7 +28,7 @@ cv2.setNumThreads(1)
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
-def get_parser(**parser_kwargs):
+def get_parser(**parser_kwargs) -> argparse.ArgumentParser:
     def str2bool(v):
         if isinstance(v, bool):
             return v
