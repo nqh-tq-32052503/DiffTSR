@@ -4,9 +4,8 @@ from functools import partial
 from torch.utils.data import DataLoader, Dataset
 import torch
 import numpy as np
-sys.path.append(os.getcwd())
 
-from dataset.base import Txt2ImgIterableBaseDataset
+from train.dataset.base import Txt2ImgIterableBaseDataset
 from model.IDM.utils.util import instantiate_from_config
 
 
