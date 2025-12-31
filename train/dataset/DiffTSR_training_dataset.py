@@ -193,8 +193,8 @@ class DiffTSR_Training_Dataset(Dataset):
         lq_text_image = transforms.ToTensor()(lq_text_image)
         lq_text_image = lq_text_image.transpose(0, 1).transpose(1, 2)
 
-        label = torch.tensor(label, dtype=torch.long)
-        pad_label = torch.tensor(pad_label, dtype=torch.long)
+        label = label.to(torch.long)
+        pad_label = pad_label.to(torch.long)
 
         example = dict()
         example["hq_image"] = hq_text_image
