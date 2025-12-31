@@ -70,10 +70,10 @@ def train(num_epochs, batch_size):
     data.prepare_data()
     data.setup()
     train_loader = data.train_dataloader()
-    trainer = Trainer(max_epochs=3, accelerator="auto", devices=2, strategy="ddp_find_unused_parameters_true")
+    trainer = Trainer(max_epochs=num_epochs, accelerator="auto", devices=2, strategy="ddp_find_unused_parameters_true")
     trainer.fit(model, train_loader)
     ckpt_path = "/kaggle/working/step0_train_IDM_VAE.ckpt"
     trainer.save_checkpoint(ckpt_path)
 
 if __name__ == "__main__":
-    train()
+    train(50, 2)
