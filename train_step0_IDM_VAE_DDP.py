@@ -54,15 +54,15 @@ class AttributeDict(dict):
         return result
 
 
-def train():
+def train(num_epochs, batch_size):
     with open("./train/config/step0_train_IDM_VAE.yaml", "r") as f:
         yaml_config = yaml.safe_load(f)
     config = AttributeDict(yaml_config)
     config.model.params.ckpt_path = None
     config.data.params.train.params.FudanVI_lmdb_folder = "/kaggle/input/fudan-lmdb/content/benchmark_dataset/scene/scene_val"
     config.data.params.validation.params.FudanVI_lmdb_folder = "/kaggle/input/fudan-lmdb/content/benchmark_dataset/scene/scene_val"
-    config.data.params.batch_size = 8
-    batch_size, base_lr = config.data.params.batch_size, config.model.base_learning_rate
+    config.data.params.batch_size = batch_size
+    base_lr = config.model.base_learning_rate
     model = instantiate_from_config(config.model)
     model.automatic_optimization = False
     model.learning_rate = float(base_lr)
